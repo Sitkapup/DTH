@@ -31,7 +31,29 @@
     <![endif]-->
 
 </head>
-
+<div class="hidden">
+	<script type="text/javascript">
+		<!--//--><![CDATA[//><!--
+			var images = new Array()
+			function preload() {
+				for (i = 0; i < preload.arguments.length; i++) {
+					images[i] = new Image()
+					images[i].src = preload.arguments[i]
+				}
+			}
+			preload(
+				"../img/page1.png",
+				"../img/pg1.jpg",
+				"../img/pg2.jpg",
+				"../img/pg3.jpg",
+				"../img/pg4.jpg",
+				"../img/pg5.jpg",
+				"../img/pg6.jpg",
+				"../img/pg7.jpg"
+			)
+		//--><!]]>
+	</script>
+</div>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.js"></script>
@@ -113,6 +135,7 @@
                     <p><img src="../img/page1.png" alt="" width="905" height="1200"/></p>
 	
 </div>
+
 <script>
 (function() {
     "use strict";
