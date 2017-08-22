@@ -105,23 +105,13 @@
 
     <!-- Download Section -->
     <section id="comic" class="content-section text-center">
-	<style>
-.img-container {
-    background-repeat: no-repeat;
-    
-    width: 620px;
-    height: 465px;
-}
-.img-container img {
-    display: block;
-}
-</style>
+
         <div class="download-section">
             <div class="row">
 			  
                 <div class="col-lg-8 col-lg-offset-2">
                     <p>
-					<div class="img-container">
+					
     <img src="../img/page1.png" alt="Page 1" />
 </div>
 <script>
@@ -194,8 +184,8 @@
 
     //** On DOM Ready **//
     $(function () {
-        // Cache a reference to .img-container
-        $imgContainer = $('.img-container');
+        // Cache a reference to .download-section
+        $imgContainer = $('.download-section');
 
         // Preloads 2nd image as bg
         preloadImage(images.nextIndex(0), true);
