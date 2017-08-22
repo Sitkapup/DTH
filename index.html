@@ -91,11 +91,25 @@
 
     <!-- Download Section -->
     <section id="comic" class="content-section text-center">
+	
         <div class="download-section">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    
-                    <p><img src="../img/page1.png" alt="Page 1" height="1200" width="906"></p>
+                    <div id="edit">
+						<img id="image" width="906" height="1200" src="../img/page1.png" />
+					</div>
+                   <script>
+				   $("#edit").click(function(){
+
+				    $("#image").fadeOut(500, function() {
+					 $(this).attr("src", "../img/mort.png");
+					 $(this).load(function () {
+					  $(this).fadeIn(500);
+				    });
+				  });
+				});
+</script>
+
                     <a href="#contact" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
