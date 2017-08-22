@@ -96,21 +96,26 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <p>
-        <img alt="" src="../img/page1.png" 
-            style="height: 1200px; width: 906px" id="imgClickAndChange" onclick="changeImage()"  />
-</p>
-<script language="javascript">
-    function changeImage() {
+						<div class="slideshow">
+    <img src="../img/page1.png" width="906" height="1200" alt="first image">
+    <img src="../img/mort.png" width="600" height="658" alt="second image">
+    <img src="../img/logo.png" width="500" height="94" alt="third image">
+    <img src="http://placehold.it/500x100/F4A460&text=4" width="500" height="100" alt="fourth image">
+</div>
+<button id="prev">Prev</button>
+<button id="next">Next</button>
 
-        if (document.getElementById("imgClickAndChange").src == "../img/mort.png") 
-        {
-            document.getElementById("imgClickAndChange").src = "http://www.userinterfaceicons.com/80x80/maximize.png";
-        }
-        else 
-        {
-            document.getElementById("imgClickAndChange").src = "http://www.userinterfaceicons.com/80x80/minimize.png";
-        }
-    }
+<script>
+$(document).ready(function() {
+    setInterval(function() {
+        var $curr = $('.slideshow img:visible'), 
+            $next = ($curr.next().length) ? $curr.next() : $('.slideshow img').first();
+        $next.css('z-index',2).fadeIn('slow', function() {
+            $curr.hide().css('z-index',0);
+            $next.css('z-index',1);
+        });
+    }, 6000); // milliseconds
+});
 </script>
 
 
