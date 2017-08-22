@@ -129,7 +129,7 @@
 <script>
 var interval = undefined;
 $(document).ready(function () {
-    
+    interval = setInterval(getNext, 2000); // milliseconds
     $('#next').on('click', getNext);
     $('#prev').on('click', getPrev);
 });
