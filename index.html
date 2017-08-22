@@ -1,233 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: page
+description: "A Clean Blog Theme by Start Bootstrap"
+---
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-	<link rel="icon" href="../img/favicon.jpg">
-
-    <title>Down The Hatch - A Vore Webcomic</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-
-    <!-- Theme CSS -->
-    <link href="css/grayscale.min.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-    <!-- jQuery -->
-    <script src="vendor/jquery/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.js"></script>
-
- 
-
-    <!-- Theme JavaScript -->
-    <script src="js/grayscale.js"></script>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
-                    <span class="light">Down The Hatch</span>
-                </a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-						<a class="page-scroll" href="#comic">Read The Comic</a>
-                        
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <!-- Intro Header -->
-    <header class="intro">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <p><img src="../img/logo.png" alt="logo" height="94" width="500"></p>
-                       
-                            
-                        <a href="#comic" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-   
-
-    <!-- Download Section -->
-    <section id="comic" class="content-section text-center">
-	
-        <div class="download-section">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <p>
-					<style>
-
-</style>
-						<div class="slideshow">
-    <img src="../img/page1.png" width="906" height="1200" alt="first image">
-    <img src="../img/pg1.jpg" width="906" height="1200" alt="second image">
-    <img src="../img/pg2.jpg" width="906" height="1200" alt="third image">
-    <img src="../img/pg3.jpg" width="906" height="1200" alt="fourth image">
-	<img src="../img/pg4.jpg" width="906" height="1200" alt="fifth image">
-	<img src="../img/pg5.jpg" width="906" height="1200" alt="sixth image">
-	<img src="../img/pg6.jpg" width="906" height="1200" alt="seventh image">
-	<img src="../img/pg7.jpg" width="906" height="1200" alt="eighth image">
+{% for post in paginator.posts %}
+<div class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl }}">
+        <h2 class="post-title">            {{ post.title }}
+        </h2>
+        {% if post.subtitle %}
+        <h3 class="post-subtitle">
+            {{ post.subtitle }}
+        </h3>
+        {% endif %}
+    </a>
+    <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
 </div>
-<p><button id="prev">Prev</button>
-<button id="next">Next</button></p>
+<hr>
+{% endfor %}
 
-<script>
-var interval = undefined;
-$(document).ready(function () {
-    interval = setInterval(getNext, 2000); // milliseconds
-    $('#next').on('click', getNext);
-    $('#prev').on('click', getPrev);
-});
-
-function getNext() {
-    var $curr = $('.slideshow img:visible'),
-        $next = ($curr.next().length) ? $curr.next() : $('.slideshow img').first();
-
-    transition($curr, $next);
-}
-
-function getPrev() {
-    var $curr = $('.slideshow img:visible'),
-        $next = ($curr.prev().length) ? $curr.prev() : $('.slideshow img').last();
-    transition($curr, $next);
-}
-
-function transition($curr, $next) {
-    clearInterval(interval);
-
-    $next.css('z-index', 2).fadeIn('slow', function () {
-        $curr.hide().css('z-index', 0);
-        $next.css('z-index', 1);
-    });
-
-}
-</script>
-
-
-
-
-
-
-                    <a href="#contact" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </a>
-                </div>
-            </div>
-        </div>
-    </section>
- <!-- About Section -->
-    <section id="about" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>About Down The Hatch</h2>
-                <p>I have long been a fan of vore, but I found myself often left wanting when browsing. I started drawing it myself, with the desire to fill in what I felt was lacking in the art I often saw: I wanted well fleshed out characters, longer stories, and a touch more realism.</p>
-				<p>This was clearly an opportunity for a comic, and I already had a story that had been in the works for years that would be perfect. So, I adapted the characters to better suit my needs, and Mort and Noah were born.</p>
-				<p>The comic will examine the predator prey relationship, and other dark themes such as life and death, revenge, human kind's place in nature (and a magical society mostly composed of non-human creatures), and of course, vore.</p>
-                <p><img src="../img/mort.png" alt="Mort" height="658" width="600"></p>
-            </div>
-        </div>
-    </section>
-    <!-- Contact Section -->
-    <section id="contact" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Contact LemonDeer</h2>
-                <p>Feel free to email me!</p>
-                <p><a href="mailto:feedback@startbootstrap.com">feedback@startbootstrap.com</a>
-                </p>
-                <ul class="list-inline banner-social-buttons">
-                    <li>
-                        <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                    </li>
-                    <li>
-                        <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-   
-
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <p>Copyright &copy; Lemon Deer 2017</p>
-        </div>
-    </footer>
-
-    <!-- jQuery -->
-    <script src="vendor/jquery/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
- 
-
-    <!-- Theme JavaScript -->
-    <script src="js/grayscale.min.js"></script>
-
-</body>
-
-</html>
+<!-- Pager -->
+{% if paginator.total_pages > 1 %}
+<ul class="pager">
+    {% if paginator.previous_page %}
+    <li class="previous">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+    </li>
+    {% endif %}
+    {% if paginator.next_page %}
+    <li class="next">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+    </li>
+    {% endif %}
+</ul>
+{% endif %}
