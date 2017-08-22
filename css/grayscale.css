@@ -119,8 +119,7 @@ a:focus {
 }
 .intro {
   display: table;
-  width: 50%;
-  height: 50%;
+  width: 100%;
   text-align: top;
   color: white;
   background: url(../img/logosmall.png) no-repeat center;
