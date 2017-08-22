@@ -124,10 +124,10 @@ a:focus {
   color: white;
   background: url(../img/logo.png) no-repeat center;
   background-color: black;
-  -webkit-background-size: auto;
-  -moz-background-size: auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
   background-size: contain;
-  -o-background-size: auto;
+  -o-background-size: cover;
 }
 .intro .intro-body {
   display: table-cell;
