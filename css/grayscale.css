@@ -122,12 +122,14 @@ a:focus {
   width: 100%;
   text-align: top;
   color: white;
-  background: url(../img/logo.png) no-repeat center;
+  
+  background: url(../img/logo.png) no-repeat center,url(../img/intro-bg.jpg) no-repeat top;
+  
   background-color: black;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
+  -webkit-background-size: auto;
+  -moz-background-size: auto;
   background-size: contain;
-  -o-background-size: cover;
+  -o-background-size: auto;
 }
 .intro .intro-body {
   display: table-cell;
@@ -220,7 +222,7 @@ a:focus {
 }
 .download-section {
   width: 100%;
-  padding: 50px 0;
+  padding: 0px 0;
   color: white;
   background: no-repeat center center scroll;
   background-color: black;
@@ -239,7 +241,7 @@ a:focus {
     padding-top: 250px;
   }
   .download-section {
-    padding: 100px 0;
+    padding: 0px 0;
   }
   #map {
     height: 400px;
