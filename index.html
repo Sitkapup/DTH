@@ -8,8 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+	<link rel="icon" href="../img/favicon.jpg">
 
-    <title>Grayscale - Start Bootstrap Theme</title>
+    <title>Down The Hatch - A Vore Webcomic</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -32,6 +33,19 @@
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+ 
+
+    <!-- Theme JavaScript -->
+    <script src="js/grayscale.min.js"></script>
 
     <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -41,7 +55,7 @@
                     Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">
-                    <i class="fa fa-play-circle"></i> <span class="light">Start</span> Bootstrap
+                    <span class="light">Down The Hatch</span>
                 </a>
             </div>
 
@@ -53,10 +67,11 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+						<a class="page-scroll" href="#comic">Read The Comic</a>
+                        
                     </li>
                     <li>
-                        <a class="page-scroll" href="#download">Download</a>
+                        <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -74,10 +89,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">Grayscale</h1>
-                        <p class="intro-text">A free, responsive, one page Bootstrap theme.
-                            <br>Created by Start Bootstrap.</p>
-                        <a href="#about" class="btn btn-circle page-scroll">
+                        <p><img src="../img/logo.png" alt="logo" height="94" width="500"></p>
+                       
+                            
+                        <a href="#comic" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
                     </div>
@@ -86,37 +101,93 @@
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>About Grayscale</h2>
-                <p>Grayscale is a free Bootstrap 3 theme created by Start Bootstrap. It can be yours right now, simply download the template on <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
-                <p>This theme features stock photos by <a href="http://gratisography.com/">Gratisography</a> along with a custom Google Maps skin courtesy of <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
-                <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.</p>
-            </div>
-        </div>
-    </section>
+   
 
     <!-- Download Section -->
-    <section id="download" class="content-section text-center">
+    <section id="comic" class="content-section text-center">
+	
         <div class="download-section">
-            <div class="container">
+            <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Download Grayscale</h2>
-                    <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
-                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
+                    <p>
+					<style>
+
+</style>
+						<div class="slideshow">
+    <img src="../img/page1.png" width="906" height="1200" alt="first image">
+    <img src="../img/pg1.jpg" width="906" height="1200" alt="second image">
+    <img src="../img/pg2.jpg" width="906" height="1200" alt="third image">
+    <img src="../img/pg3.jpg" width="906" height="1200" alt="fourth image">
+	<img src="../img/pg4.jpg" width="906" height="1200" alt="fifth image">
+	<img src="../img/pg5.jpg" width="906" height="1200" alt="sixth image">
+	<img src="../img/pg6.jpg" width="906" height="1200" alt="seventh image">
+	<img src="../img/pg7.jpg" width="906" height="1200" alt="eighth image">
+</div>
+<p><button id="prev">Prev</button>
+<button id="next">Next</button></p>
+
+<script>
+var interval = undefined;
+$(document).ready(function () {
+    interval = setInterval(getNext, 2000); // milliseconds
+    $('#next').on('click', getNext);
+    $('#prev').on('click', getPrev);
+});
+
+function getNext() {
+    var $curr = $('.slideshow img:visible'),
+        $next = ($curr.next().length) ? $curr.next() : $('.slideshow img').first();
+
+    transition($curr, $next);
+}
+
+function getPrev() {
+    var $curr = $('.slideshow img:visible'),
+        $next = ($curr.prev().length) ? $curr.prev() : $('.slideshow img').last();
+    transition($curr, $next);
+}
+
+function transition($curr, $next) {
+    clearInterval(interval);
+
+    $next.css('z-index', 2).fadeIn('slow', function () {
+        $curr.hide().css('z-index', 0);
+        $next.css('z-index', 1);
+    });
+
+}
+</script>
+
+
+
+
+
+
+                    <a href="#contact" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
                 </div>
             </div>
         </div>
     </section>
-
+ <!-- About Section -->
+    <section id="about" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>About Down The Hatch</h2>
+                <p>I have long been a fan of vore, but I found myself often left wanting when browsing. I started drawing it myself, with the desire to fill in what I felt was lacking in the art I often saw: I wanted well fleshed out characters, longer stories, and a touch more realism.</p>
+				<p>This was clearly an opportunity for a comic, and I already had a story that had been in the works for years that would be perfect. So, I adapted the characters to better suit my needs, and Mort and Noah were born.</p>
+				<p>The comic will examine the predator prey relationship, and other dark themes such as life and death, revenge, human kind's place in nature (and a magical society mostly composed of non-human creatures), and of course, vore.</p>
+                <p><img src="../img/mort.png" alt="Mort" height="658" width="600"></p>
+            </div>
+        </div>
+    </section>
     <!-- Contact Section -->
     <section id="contact" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>Contact Start Bootstrap</h2>
-                <p>Feel free to email us to provide some feedback on our templates, give us suggestions for new templates and themes, or to just say hello!</p>
+                <h2>Contact LemonDeer</h2>
+                <p>Feel free to email me!</p>
                 <p><a href="mailto:feedback@startbootstrap.com">feedback@startbootstrap.com</a>
                 </p>
                 <ul class="list-inline banner-social-buttons">
@@ -134,13 +205,12 @@
         </div>
     </section>
 
-    <!-- Map Section -->
-    <div id="map"></div>
+   
 
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p>Copyright &copy; Your Website 2016</p>
+            <p>Copyright &copy; Lemon Deer 2017</p>
         </div>
     </footer>
 
@@ -153,8 +223,7 @@
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
-    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+ 
 
     <!-- Theme JavaScript -->
     <script src="js/grayscale.min.js"></script>
