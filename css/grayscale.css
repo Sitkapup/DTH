@@ -3,21 +3,7 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
-.slideshow {
-    position: relative;
-    /* necessary to absolutely position the images inside */
-    width: 500px;
-    /* same as the images inside */
-    height: 100px;
-}
-.slideshow img {
-    position: absolute;
-    display: none;
-}
-.slideshow img:first-child {
-    display: block;
-    /* overrides the previous style */
-}
+
  body {
   width: 100%;
   height: 100%;
