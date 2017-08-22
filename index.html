@@ -76,7 +76,7 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <p><img src="../img/logo.png" alt="logo" height="94" width="500"></p>
-                        <p class="intro-text">A vore webcomic.</p>
+                       
                             
                         <a href="#comic" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
@@ -95,20 +95,28 @@
         <div class="download-section">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <div id="edit">
-						<img id="image" width="906" height="1200" src="../img/page1.png" />
-					</div>
-                   <script>
-				   $("#edit").click(function(){
+                    <p>
+        <img alt="" src="../img/page1.png" 
+            style="height: 1200px; width: 906px" id="imgClickAndChange" onclick="changeImage()"  />
+</p>
+<script language="javascript">
+    function changeImage() {
 
-				    $("#image").fadeOut(500, function() {
-					 $(this).attr("src", "../img/mort.png");
-					 $(this).load(function () {
-					  $(this).fadeIn(500);
-				    });
-				  });
-				});
+        if (document.getElementById("imgClickAndChange").src == "../img/mort.png") 
+        {
+            document.getElementById("imgClickAndChange").src = "http://www.userinterfaceicons.com/80x80/maximize.png";
+        }
+        else 
+        {
+            document.getElementById("imgClickAndChange").src = "http://www.userinterfaceicons.com/80x80/minimize.png";
+        }
+    }
 </script>
+
+
+
+
+
 
                     <a href="#contact" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
