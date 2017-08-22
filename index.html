@@ -111,50 +111,89 @@
 			   <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <p>
-					<center>
-						<div class="slideshow">
-    <img src="../img/page1.png" width="906" height="1200" alt="first image">
-    <img src="../img/pg1.jpg" width="906" height="1200" alt="second image">
-    <img src="../img/pg2.jpg" width="906" height="1200" alt="third image">
-    <img src="../img/pg3.jpg" width="906" height="1200" alt="fourth image">
-	<img src="../img/pg4.jpg" width="906" height="1200" alt="fifth image">
-	<img src="../img/pg5.jpg" width="906" height="1200" alt="sixth image">
-	<img src="../img/pg6.jpg" width="906" height="1200" alt="seventh image">
-	<img src="../img/pg7.jpg" width="906" height="1200" alt="eighth image">
+					<div class="img-container">
+    <img src="../img/page1.png" alt="Page 1" />
 </div>
-<p><button id="prev">Prev</button>
-<button id="next">Next</button></p>
-</center>
 <script>
-var interval = undefined;
-$(document).ready(function () {
-    interval = setInterval(getNext, 2000); // milliseconds
-    $('#next').on('click', getNext);
-    $('#prev').on('click', getPrev);
-});
+(function() {
+    "use strict";
 
-function getNext() {
-    var $curr = $('.slideshow img:visible'),
-        $next = ($curr.next().length) ? $curr.next() : $('.slideshow img').first();
+    function preloadImage(newIndex) {
+        swapImage(newIndex, true);
+    }
 
-    transition($curr, $next);
-}
+    function swapImage(newIndex, preload) {
+        var newImgSrc;
+        var $img = $imgContainer.find('img');
+        var imgIsAnimating = $img.is(':animated');
 
-function getPrev() {
-    var $curr = $('.slideshow img:visible'),
-        $next = ($curr.prev().length) ? $curr.prev() : $('.slideshow img').last();
-    transition($curr, $next);
-}
+        if (!imgIsAnimating) {
+            newImgSrc = images[newIndex];
+            // Set background-image to new image
+            $imgContainer.css({'background-image': 'url(' + newImgSrc + ')'});
 
-function transition($curr, $next) {
-    clearInterval(interval);
+            // If this is a preload, we should 
+            if (!preload) {
+                //Set data-index to the new index value
+                $imgContainer.data('index', newIndex);
 
-    $next.css('z-index', 2).fadeIn('slow', function () {
-        $curr.hide().css('z-index', 0);
-        $next.css('z-index', 1);
+                // Fade old image
+                $imgContainer.find('img').animate({ opacity: 0 }, function () {
+                    //** Callback upon fade animation completed **/
+                    imageSwapTidyUp(newImgSrc);
+                });
+            }
+        }
+    }
+
+    function imageSwapTidyUp(newImgSrc) {
+        var $img = $imgContainer.find('img');
+        // Change img src to new image
+        $img.prop('src', newImgSrc);
+        // Make img opaque
+        $img.animate({ opacity: 1 }, 100);
+    }
+
+    function addArrayNextIndexSupport() {
+        // Modify the Array object prototype, add nextIndex method
+        if (!Array.prototype.nextIndex) {
+            Array.prototype.nextIndex = function (currentIndex) {
+                // currentIndex + 1 if in bounds, else 0
+                return currentIndex < this.length - 1 ? currentIndex + 1 : 0;
+            }
+        }
+    }
+
+    //** On initialisation **//
+
+    // Array holding all the images to be loaded
+    var images = [
+        '../img/pg1.png',
+        '../img/pg2.png',
+        '../img/pg3.png',
+        '../img/pg4.png'
+    ];
+    var $imgContainer;
+
+    // Adds nextIndex to Array object
+    addArrayNextIndexSupport();
+
+    //** On DOM Ready **//
+    $(function () {
+        // Cache a reference to .img-container
+        $imgContainer = $('.img-container');
+
+        // Preloads 2nd image as bg
+        preloadImage(images.nextIndex(0), true);
+
+        $imgContainer
+            .data('index', 0) // Set data-index to 0 on init
+            .on('click', function () {
+                var newIndex = images.nextIndex($(this).data('index'));
+                swapImage(newIndex);
+            });
     });
-
-}
+}());
 </script>
 
 
