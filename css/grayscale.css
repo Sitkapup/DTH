@@ -230,6 +230,7 @@ a:focus {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
+  clear:both
 }
 #map {
   width: 100%;
