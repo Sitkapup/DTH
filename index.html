@@ -134,7 +134,7 @@
          
                 
                 
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner" role="listbox">
     <div class="carousel-item active">
       <img class="d-block img-fluid" src="../img/pg001.jpg" alt="First slide">
@@ -143,7 +143,7 @@
       <img class="d-block img-fluid" src="../img/pg002.jpg" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block img-fluid" src="../img/pg003.jpg" alt="Third slide">
+      <img class="d-block img-fluid" src="../img/pg001.jpg" alt="Third slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -154,11 +154,117 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-
+</div>
 	
+</div>
 
+<script>
+(function() {
+    "use strict";
 
+    function preloadImage(newIndex) {
+        swapImage(newIndex, true);
+    }
 
+    function swapImage(newIndex, preload) {
+        var newImgSrc;
+        var $img = $imgContainer.find('img');
+        var imgIsAnimating = $img.is(':animated');
+
+        if (!imgIsAnimating) {
+            newImgSrc = images[newIndex];
+           
+
+            // If this is a preload, we should 
+            if (!preload) {
+                //Set data-index to the new index value
+                $imgContainer.data('index', newIndex);
+
+                // Fade old image
+                $imgContainer.find('img').animate({ opacity: 0 }, function () {
+                    //** Callback upon fade animation completed **/
+                    imageSwapTidyUp(newImgSrc);
+                });
+            }
+        }
+    }
+
+    function imageSwapTidyUp(newImgSrc) {
+        var $img = $imgContainer.find('img');
+        // Change img src to new image
+        $img.prop('src', newImgSrc);
+        // Make img opaque
+        $img.animate({ opacity: 1 }, 100);
+    }
+
+    function addArrayNextIndexSupport() {
+        // Modify the Array object prototype, add nextIndex method
+        if (!Array.prototype.nextIndex) {
+            Array.prototype.nextIndex = function (currentIndex) {
+                // currentIndex + 1 if in bounds, else 0
+                return currentIndex < this.length - 1 ? currentIndex + 1 : 0;
+            }
+        }
+    }
+
+    //** On initialisation **//
+
+    // Array holding all the images to be loaded
+    var images = [
+		'../img/mort.png',
+        '../img/pg001.jpg',
+        '../img/pg002.jpg',
+        '../img/pg003.jpg',
+        '../img/pg004.jpg',
+		'../img/pg005.jpg',
+		'../img/pg006.jpg',
+		'../img/pg007.jpg',
+		'../img/pg008.jpg',
+		'../img/pg009.jpg',
+		'../img/pg010.jpg',
+		'../img/pg011.jpg',
+		'../img/pg012.jpg',
+		'../img/pg013.jpg',
+		'../img/pg014.jpg',
+		'../img/pg015.jpg',
+		'../img/pg016.jpg',
+		'../img/pg017.jpg',
+		'../img/pg018.jpg',
+		'../img/pg019.jpg',
+		'../img/pg020.jpg',
+		'../img/pg021.jpg',
+		'../img/pg022.jpg',
+		'../img/pg023.jpg',
+		'../img/pg024.jpg',
+		'../img/pg025.jpg',
+		'../img/pg026.jpg',
+		'../img/pg027.jpg',
+		'../img/pg028.jpg',
+		
+		
+    ];
+    var $imgContainer;
+
+    // Adds nextIndex to Array object
+    addArrayNextIndexSupport();
+
+    //** On DOM Ready **//
+    $(function () {
+        // Cache a reference to .download-section
+        $imgContainer = $('.download-section');
+
+        // Preloads 2nd image as bg
+        preloadImage(images.nextIndex(0), true);
+
+        $imgContainer
+            .data('index', 0) // Set data-index to 0 on init
+            .on('click', function () {
+                var newIndex = images.nextIndex($(this).data('index'));
+                swapImage(newIndex);
+            });
+    });
+}());
+</script>
 
 
 
