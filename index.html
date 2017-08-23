@@ -8,20 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-	<link rel="icon" href="../img/favicon.jpg">
 
-    <title>Down The Hatch - A Vore Webcomic</title>
+    <title>Full Slider - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-
-    <!-- Theme CSS -->
-    <link href="css/grayscale.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/full-slider.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,95 +25,33 @@
     <![endif]-->
 
 </head>
-<div class="hidden">
-	<script type="text/javascript">
-		<!--//--><![CDATA[//><!--
-			var images = new Array()
-			function preload() {
-				for (i = 0; i < preload.arguments.length; i++) {
-					images[i] = new Image()
-					images[i].src = preload.arguments[i]
-				}
-			}
-			preload(
-					
-		'../img/cover.jpg',
-        '../img/pg001.jpg',
-        '../img/pg002.jpg',
-        '../img/pg003.jpg',
-        '../img/pg004.jpg',
-		'../img/pg005.jpg',
-		'../img/pg006.jpg',
-		'../img/pg007.jpg',
-		'../img/pg008.jpg',
-		'../img/pg009.jpg',
-		'../img/pg010.jpg',
-		'../img/pg011.jpg',
-		'../img/pg012.jpg',
-		'../img/pg013.jpg',
-		'../img/pg014.jpg',
-		'../img/pg015.jpg',
-		'../img/pg016.jpg',
-		'../img/pg017.jpg',
-		'../img/pg018.jpg',
-		'../img/pg019.jpg',
-		'../img/pg020.jpg',
-		'../img/pg021.jpg',
-		'../img/pg022.jpg',
-		'../img/pg023.jpg',
-		'../img/pg024.jpg',
-		'../img/pg025.jpg',
-		'../img/pg026.jpg',
-		'../img/pg027.jpg',
-		'../img/pg028.jpg',
-		
-			)
-		//--><!]]>
-	</script>
-</div>
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-    <!-- jQuery -->
-    <script src="vendor/jquery/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.js"></script>
-
- 
-
-    <!-- Theme JavaScript -->
-    <script src="js/grayscale.js"></script>
+<body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    Menu <i class="fa fa-bars"></i>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
-                    <span class="light">Down The Hatch</span>
-                </a>
+                <a class="navbar-brand" href="#">Start Bootstrap</a>
             </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a href="#page-top"></a>
+                    <li>
+                        <a href="#">About</a>
                     </li>
                     <li>
-						<a class="page-scroll" href="#comic">Read The Comic</a>
-                        
+                        <a href="#">Services</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a href="#">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -128,193 +60,87 @@
         <!-- /.container -->
     </nav>
 
-    <!-- Download Section -->
-    <section id="comic" class="content-section text-center">
-	<div class="container">
-        <div class="download-section">
-            <div class="row">
-			  
-                <div class="col-lg-8 col-lg-offset-2">
-                    <p><img src="../img/pg028.jpg" alt="" width="927" height="1200"/></p>
-	
-</div>
+    <!-- Full Page Image Background Carousel Header -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
 
-<script>
-(function() {
-    "use strict";
-
-    function preloadImage(newIndex) {
-        swapImage(newIndex, true);
-    }
-
-    function swapImage(newIndex, preload) {
-        var newImgSrc;
-        var $img = $imgContainer.find('img');
-        var imgIsAnimating = $img.is(':animated');
-
-        if (!imgIsAnimating) {
-            newImgSrc = images[newIndex];
-           
-
-            // If this is a preload, we should 
-            if (!preload) {
-                //Set data-index to the new index value
-                $imgContainer.data('index', newIndex);
-
-                // Fade old image
-                $imgContainer.find('img').animate({ opacity: 0 }, function () {
-                    //** Callback upon fade animation completed **/
-                    imageSwapTidyUp(newImgSrc);
-                });
-            }
-        }
-    }
-
-    function imageSwapTidyUp(newImgSrc) {
-        var $img = $imgContainer.find('img');
-        // Change img src to new image
-        $img.prop('src', newImgSrc);
-        // Make img opaque
-        $img.animate({ opacity: 1 }, 100);
-    }
-
-    function addArrayNextIndexSupport() {
-        // Modify the Array object prototype, add nextIndex method
-        if (!Array.prototype.nextIndex) {
-            Array.prototype.nextIndex = function (currentIndex) {
-                // currentIndex + 1 if in bounds, else 0
-                return currentIndex < this.length - 1 ? currentIndex + 1 : 0;
-            }
-        }
-    }
-
-    //** On initialisation **//
-
-    // Array holding all the images to be loaded
-    var images = [
-		'../img/cover.jpg',
-        '../img/pg001.jpg',
-        '../img/pg002.jpg',
-        '../img/pg003.jpg',
-        '../img/pg004.jpg',
-		'../img/pg005.jpg',
-		'../img/pg006.jpg',
-		'../img/pg007.jpg',
-		'../img/pg008.jpg',
-		'../img/pg009.jpg',
-		'../img/pg010.jpg',
-		'../img/pg011.jpg',
-		'../img/pg012.jpg',
-		'../img/pg013.jpg',
-		'../img/pg014.jpg',
-		'../img/pg015.jpg',
-		'../img/pg016.jpg',
-		'../img/pg017.jpg',
-		'../img/pg018.jpg',
-		'../img/pg019.jpg',
-		'../img/pg020.jpg',
-		'../img/pg021.jpg',
-		'../img/pg022.jpg',
-		'../img/pg023.jpg',
-		'../img/pg024.jpg',
-		'../img/pg025.jpg',
-		'../img/pg026.jpg',
-		'../img/pg027.jpg',
-		'../img/pg028.jpg',
-		
-		
-    ];
-    var $imgContainer;
-
-    // Adds nextIndex to Array object
-    addArrayNextIndexSupport();
-
-    //** On DOM Ready **//
-    $(function () {
-        // Cache a reference to .download-section
-        $imgContainer = $('.download-section');
-
-        // Preloads 2nd image as bg
-        preloadImage(images.nextIndex(0), true);
-
-        $imgContainer
-            .data('index', 0) // Set data-index to 0 on init
-            .on('click', function () {
-                var newIndex = images.nextIndex($(this).data('index'));
-                swapImage(newIndex);
-            });
-    });
-}());
-</script>
-
-
-
-
-
-
-
-                    
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 1</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 2</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 3</h2>
                 </div>
             </div>
         </div>
-    </section>
- <!-- About Section -->
-    <section id="about" class="container content-section text-center">
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>About Down The Hatch</h2>
-                <p>I have long been a fan of vore, but I found myself often left wanting when browsing. I started drawing it myself, with the desire to fill in what I felt was lacking in the art I often saw: I wanted well fleshed out characters, longer stories, and a touch more realism.</p>
-				<p>This was clearly an opportunity for a comic, and I already had a story that had been in the works for years that would be perfect. So, I adapted the characters to better suit my needs, and Mort and Noah were born.</p>
-				<p>The comic will examine the predator prey relationship, and other dark themes such as life and death, revenge, human kind's place in nature (and a magical society mostly composed of non-human creatures), and of course, vore.</p>
-                <p><img src="../img/mort.png" alt="Mort" height="658" width="600"></p>
+            <div class="col-lg-12">
+                <h1>Full Slider by Start Bootstrap</h1>
+                <p>The background images for the slider are set directly in the HTML using inline CSS. The rest of the styles for this template are contained within the <code>full-slider.css</code>file.</p>
             </div>
         </div>
-    </section>
-    <!-- Contact Section -->
-    <section id="contact" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Contact LemonDeer</h2>
-                <p>Feel free to email me!</p>
-                <p><a href="mailto:feedback@startbootstrap.com">feedback@startbootstrap.com</a>
-                </p>
-                <ul class="list-inline banner-social-buttons">
-                    <li>
-                        <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                    </li>
-                    <li>
-                        <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
-                    </li>
-                </ul>
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
             </div>
-        </div>
-    </section>
+            <!-- /.row -->
+        </footer>
 
-   
-
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <p>Copyright &copy; Lemon Deer 2017</p>
-        </div>
-    </footer>
+    </div>
+    <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="vendor/jquery/jquery.js"></script>
+    <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
- 
-
-    <!-- Theme JavaScript -->
-    <script src="js/grayscale.min.js"></script>
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
 
 </body>
 
