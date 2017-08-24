@@ -162,7 +162,7 @@
 	<li><img src="http://dthcomic.com/img/pg027.jpg" alt="" width="927" height="1200"/></li>
 	
 </ul>
-<button type="button" id="first" class="btn btn-default btn-lg">Next</button>
+<button type="button" id="first" class="btn btn-default btn-lg">First</button>
 <button type="button" id="prev" class="btn btn-default btn-lg">Prev</button>
 <button type="button" id="next" class="btn btn-default btn-lg">Next</button>
 </div>
@@ -171,7 +171,7 @@
 $(function () {
     var 
         $listItems = $("#site_slideshow_inner_text").children('li'),
-        fadeDuration = 300,
+        fadeDuration = 600,
         interval;
     $listItems.not(':first').hide();
 
@@ -179,11 +179,7 @@ $(function () {
         $listItems.filter(':visible').fadeOut(fadeDuration, function () {
             elm.fadeIn(fadeDuration);
         });
-    }
-		$('#prev, #next').on('click', function () {
-        stopAutoSlide();
-        showSlide(getNextElement(this.id));
-    });
+    
 
     function getNextElement(direction) {
         var $next = $listItems.filter(':visible')[direction](),
