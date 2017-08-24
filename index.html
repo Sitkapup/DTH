@@ -148,7 +148,7 @@ $(function () {
             elm.fadeIn(fadeDuration);
         });
     }
-		$('#prev, #next, #first, #last').on('click', function () {
+		$('#prev, #next').on('click', function () {
         stopAutoSlide();
         showSlide(getNextElement(this.id));
     });
