@@ -152,11 +152,6 @@ $(function () {
         stopAutoSlide();
         showSlide(getNextElement(this.id));
     });
-	}
-		$('#first, #last').on('click', function () {
-        stopAutoSlide();
-        showSlide(getNextElement(this.id));
-    });
 
     function getNextElement(direction) {
         var $next = $listItems.filter(':visible')[direction](),
