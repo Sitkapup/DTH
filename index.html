@@ -99,7 +99,7 @@
 	<div class="container">
         <div class="download-section">
          <ul id="site_slideshow_inner_text">
-	<ol><img src="http://dthcomic.com/img/pg028.jpg" alt="Page 28" width="927" height="1200" style="margin-right: 82px;"></ol>
+	<ol><img src="http://dthcomic.com/img/pg028.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"></ol>
     <ol><img src="http://dthcomic.com/img/pg001.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"></ol>
     <ol><img src="http://dthcomic.com/img/pg002.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"></ol>
     <ol><img src="http://dthcomic.com/img/pg003.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"></ol>
@@ -148,7 +148,7 @@ $(function () {
             elm.fadeIn(fadeDuration);
         });
     }
-		$('#prev, #next').on('click', function () {
+		$('#prev, #next, #first, #last').on('click', function () {
         stopAutoSlide();
         showSlide(getNextElement(this.id));
     });
