@@ -137,16 +137,16 @@
     <li><img src="http://dthcomic.com/img/pg003.jpg" alt="" width="927" height="1200"/></li>
     <li><img src="http://dthcomic.com/img/pg004.jpg" alt="" width="927" height="1200"/></li>
 </ul>
-<div id="prev">Prev</div>
-<div id="next">Next</div>
-	
+
+<button type="button" id="Prev" class="btn btn-default btn-lg">Prev</button>
+<button type="button" id="Next" class="btn btn-default btn-lg">Next</button>
 </div>
 
 <script>
 $(function () {
     var 
         $listItems = $("#site_slideshow_inner_text").children('li'),
-        fadeDuration = 300,
+        fadeDuration = 3000,
         interval;
     $listItems.not(':first').hide();
 
