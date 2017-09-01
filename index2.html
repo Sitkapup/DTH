@@ -99,8 +99,10 @@
 	<div class="container">
         <div class="download-section">
          <ul id="site_slideshow_inner_text">
-	<ol><img src="http://dthcomic.com/img/pg028.jpg" onclick="reset('newid1') alt="" width="927" height="1200" style="margin-right: 82px;"></ol>
-    <ol><img src="http://dthcomic.com/img/pg001.jpg" onclick="reset('newid2') alt="" width="927" height="1200" style="margin-right: 82px;"></ol>
+	<ol><img src="http://dthcomic.com/img/pg028.jpg" alt="" width="927" height="1200" style="margin-right: 82px;">
+	<button onclick="reset('newid1', 'http://example.com/unique-path-to-article1/', 'Article Title 2', 'en');">Load Comments</button></ol>
+    <ol><img src="http://dthcomic.com/img/pg001.jpg" alt="" width="927" height="1200" style="margin-right: 82px;">
+	<button onclick="reset('newid2', 'http://example.com/unique-path-to-article2/', 'Article Title 2', 'en');">Load Comments</button></ol>
     <ol><img src="http://dthcomic.com/img/pg002.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"></ol>
     <ol><img src="http://dthcomic.com/img/pg003.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"></ol>
     <ol><img src="http://dthcomic.com/img/pg004.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"/></ol>
@@ -133,7 +135,6 @@
 <button type="button" id="prev" class="btn btn-default btn-lg" onmousedown="event.preventDefault()">Prev</button>
 <button type="button" id="next" class="btn btn-default btn-lg" onmousedown="event.preventDefault()">Next</button>
 <!--<button type="button" id="last" class="btn btn-default btn-lg">Last</button>-->
-<div id="disqus_thread"></div>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
