@@ -135,33 +135,40 @@
 <button type="button" id="prev" class="btn btn-default btn-lg" onmousedown="event.preventDefault()">Prev</button>
 <button type="button" id="next" class="btn btn-default btn-lg" onmousedown="event.preventDefault()">Next</button>
 <!--<button type="button" id="last" class="btn btn-default btn-lg">Last</button>-->
-<div id="disqus_thread"></div>
+<div id="disqus_thread">
+  <a href="#" onclick="disqus();return false;">Show Comments</a> 
+</div>
 <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'dthcomic-com';
-    var disqus_identifier = 'newid1';
-    var disqus_url = 'http://example.com/unique-path-to-article-1/';
-	var disqus_config = function () { 
-	  this.language = "en";
-	};
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    /* * * Disqus Reset Function * * */
-    var reset = function (newIdentifier, newUrl, newTitle, newLanguage) {
-        DISQUS.reset({
-            reload: true,
-            config: function () {
-                this.page.identifier = newIdentifier;
-                this.page.url = newUrl;
-                this.page.title = newTitle;
-                this.language = newLanguage;
-            }
-        });
-    };
+
+// Replace labnol with your disqus shortname
+var disqus_shortname = "dthcomic-com";
+
+// Put the permalink of your web page / blog post
+var disqus_url = "http://dthcomic.com";
+
+// Put the permalink of your web page / blog post
+var disqus_identifier = "http://dthcomic.com"; 
+
+var disqus_loaded = false;
+
+// This is the function that will load Disqus comments on demand
+function disqus() {
+
+  if (!disqus_loaded)  {
+    
+    // This is to ensure that Disqus widget is loaded only once
+    disqus_loaded = true;
+    
+    var e = document.createElement("script");
+    e.type = "text/javascript";
+    e.async = true;
+    e.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+    (document.getElementsByTagName("head")[0] ||
+     document.getElementsByTagName("body")[0])
+    .appendChild(e);
+  }
+} 
+
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
