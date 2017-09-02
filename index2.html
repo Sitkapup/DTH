@@ -186,20 +186,16 @@ $(function () {
 		
     });
 		
-	
-		$('#first').on('click', function () {
-        stopAutoSlide();
-        showSlide(getNextElement(first));
-	});	
-	
-	
+	  $('#first').on('click', function() {
+    stopAutoSlide();
+    showSlide(getNextElement('first'));
+  });
 
-		$('#last').on('click', function () {
-        stopAutoSlide();
-        showSlide(getNextElement(last));
-		
-	});	
-	
+  $('#last').on('click', function() {
+    stopAutoSlide();
+    showSlide(getNextElement('last'));
+  });
+
     function getNextElement(direction) {
         var $next = $listItems.filter(':visible')[direction](),
             fallBack = (direction === 'prev' ? 'last' : 'first');
