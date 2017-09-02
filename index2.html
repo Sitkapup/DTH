@@ -100,16 +100,9 @@
         <div class="download-section">
          <ul id="site_slideshow_inner_text">
 	<ol><img src="http://dthcomic.com/img/pg028.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"><button class="btn btn-default btn-lg" style="margin-right: 82px;" onclick="reset('newid1', 'http://dthcomic.com/1', 'Down The Hatch Page 28', 'en');">Load Comments</button></ol>
-    <ol><img src="http://dthcomic.com/img/pg001.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"> 
-	
-	
-	  
-	  </ol>
+    <ol><img src="http://dthcomic.com/img/pg001.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"><button class="btn btn-default btn-lg" style="margin-right: 82px;" onclick="reset('newid2', 'http://dthcomic.com/2', 'Down The Hatch Page 1', 'en');">Load Comments</button></ol>
     <ol><img src="http://dthcomic.com/img/pg002.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"><button class="btn btn-default btn-lg" style="margin-right: 82px;" onclick="reset('newid3', 'http://dthcomic.com/3', 'Down The Hatch Page 2', 'en');">Load Comments</button></ol>
-    <ol>
-<img src="http://dthcomic.com/img/pg003.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"
-
-</ol>
+    <ol><img src="http://dthcomic.com/img/pg003.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"><button class="btn btn-default btn-lg" style="margin-right: 82px;" onclick="reset('newid4', 'http://dthcomic.com/4', 'Down The Hatch Page 3', 'en');">Load Comments</button></ol>
     <ol><img src="http://dthcomic.com/img/pg004.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"><button class="btn btn-default btn-lg" style="margin-right: 82px;" onclick="reset('newid5', 'http://dthcomic.com/5', 'Down The Hatch Page 4', 'en');">Load Comments</button></ol>
 	<ol><img src="http://dthcomic.com/img/pg005.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"><button class="btn btn-default btn-lg" style="margin-right: 82px;" onclick="reset('newid6', 'http://dthcomic.com/6', 'Down The Hatch Page 5', 'en');">Load Comments</button></ol>
 	<ol><img src="http://dthcomic.com/img/pg006.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"><button class="btn btn-default btn-lg" style="margin-right: 82px;" onclick="reset('newid7', 'http://dthcomic.com/7', 'Down The Hatch Page 6', 'en');">Load Comments</button></ol>
@@ -136,7 +129,6 @@
 	<ol><img src="http://dthcomic.com/img/pg027.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"><button class="btn btn-default btn-lg" style="margin-right: 82px;" onclick="reset('newid28', 'http://dthcomic.com/28', 'Down The Hatch Page 27', 'en');">Load Comments</button></ol>
 	
 </ul>
-
 <!--<button type="button" id="first" class="btn btn-default btn-lg">First</button>-->
 <button type="button" id="prev" class="btn btn-default btn-lg" onmousedown="event.preventDefault()">Prev</button>
 <button type="button" id="next" class="btn btn-default btn-lg" onmousedown="event.preventDefault()">Next</button>
@@ -188,7 +180,6 @@ $(function () {
 		$('#prev, #next').on('click', function () {
         stopAutoSlide();
         showSlide(getNextElement(this.id));
-		reset('newid3', 'http://dthcomic.com/3', 'Down The Hatch Page 2', 'en');
     });
 
     function getNextElement(direction) {
