@@ -178,6 +178,7 @@ $(function () {
             elm.fadeIn(fadeDuration);
         });
     }
+	
 		$('#prev, #next').on('click', function () {
         stopAutoSlide();
         showSlide(getNextElement(this.id));
@@ -185,19 +186,20 @@ $(function () {
 		
     });
 		
-	}	
+	
 		$('#first').on('click', function () {
         stopAutoSlide();
         showSlide(getNextElement(first));
 	});	
 	
-	}
+	
 
 		$('#last').on('click', function () {
         stopAutoSlide();
         showSlide(getNextElement(last));
 		
 	});	
+	
     function getNextElement(direction) {
         var $next = $listItems.filter(':visible')[direction](),
             fallBack = (direction === 'prev' ? 'last' : 'first');
