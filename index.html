@@ -129,43 +129,68 @@
 	<ol><img src="http://dthcomic.com/img/pg027.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"/></ol>
 	
 </ul>
-<!--<button type="button" id="first" class="btn btn-default btn-lg">First</button>-->
+<button type="button" id="first" class="btn btn-default btn-lg"onmousedown="event.preventDefault()">First</button>
 <button type="button" id="prev" class="btn btn-default btn-lg" onmousedown="event.preventDefault()">Prev</button>
 <button type="button" id="next" class="btn btn-default btn-lg" onmousedown="event.preventDefault()">Next</button>
-<!--<button type="button" id="last" class="btn btn-default btn-lg">Last</button>-->
+<button type="button" id="last" class="btn btn-default btn-lg" onmousedown="event.preventDefault()">Last</button>
 </div>
 
 <script>
-$(function () {
-    var 
+$(function() {
+      var
         $listItems = $("#site_slideshow_inner_text").children('ol'),
         fadeDuration = 300,
         interval;
-    $listItems.not(':first').hide();
+        
+      // hide whatever isn't the last child
+      $listItems.not(':last').hide();
+      
+      // hide whatever isn't the first child
+      //$listItems.not(':first').hide();
+      
+      // this shows the number of elements 0-10 in this case
+      //  $( "ol" ).each(function( index ) {
+      //document.write( index + ": " + $( this ).text() );
+      //   });
 
-    function showSlide(elm) {
-        $listItems.filter(':visible').fadeOut(fadeDuration, function () {
-            elm.fadeIn(fadeDuration);
+      // this function looks for child items that are visible and performs the fade function
+      // elements that weren't last were hidden
+      // now when we go to the next element it is no longer hidden and is visible while the rest
+      // are hidden.  the elements are still taking up display space
+      function showSlide(elm) {
+        $listItems.filter(':visible').fadeOut(fadeDuration, function() {
+          elm.fadeIn(fadeDuration);
         });
-    }
-		$('#prev, #next').on('click', function () {
-        stopAutoSlide();
+      }
+      
+      // this sets up the events for button cliks
+      // we pass in the child element and then make it visible instead of hidden
+      $('#prev, #next, #first, #last').on('click', function() {
         showSlide(getNextElement(this.id));
-    });
+      });
 
-    function getNextElement(direction) {
-        var $next = $listItems.filter(':visible')[direction](),
+        function getNextElement(direction) {
+           //return $listItems.next(':visible');
+          var $next = $listItems.filter(':visible')[direction](),
             fallBack = (direction === 'prev' ? 'last' : 'first');
-        return !$next.length ? $listItems[fallBack]() : $next;
-    }
+            
+            switch(direction){
+              case 'first':
+                return $listItems.first();
+              break;
+                case 'next':
+                return !$next.length ? $listItems[fallBack]() : $next;
+              break;
+                case 'prev':
+                return !$next.length ? $listItems[fallBack]() : $next;
+              break;
+                case 'last':
+                return $listItems.last();
+              break;
+            }
+        }
+      });
 
-    function stopAutoSlide() {
-        $listItems.stop(true, true, true);
-        clearInterval(interval);
-    }
-
-    autoSlide();
-});
 </script>
 
 
