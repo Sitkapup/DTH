@@ -193,8 +193,7 @@ $(function() {
             fallBack = (direction === 'prev' ? 'last' : 'first');
             if (direction === 'first') {
                return $listItems.first();
-			if (direction === 'last') {
-               return $listItems.last();
+				
             
             }
           return !$next.length ? $listItems[fallBack]() : $next;
