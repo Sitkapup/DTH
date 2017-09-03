@@ -170,19 +170,30 @@ $(function() {
         $listItems = $("#site_slideshow_inner_text").children('ol'),
         fadeDuration = 300,
         interval;
-        // hide whatever isn't the last child
+        
+      // hide whatever isn't the last child
       $listItems.not(':last').hide();
       
-    //  $( "li" ).each(function( index ) {
-  //document.write( index + ": " + $( this ).text() );
-    //   });
+      // hide whatever isn't the first child
+      //$listItems.not(':first').hide();
+      
+      // this shows the number of elements 0-10 in this case
+      //  $( "ol" ).each(function( index ) {
+      //document.write( index + ": " + $( this ).text() );
+      //   });
 
+      // this function looks for child items that are visible and performs the fade function
+      // elements that weren't last were hidden
+      // now when we go to the next element it is no longer hidden and is visible while the rest
+      // are hidden.  the elements are still taking up display space
       function showSlide(elm) {
         $listItems.filter(':visible').fadeOut(fadeDuration, function() {
           elm.fadeIn(fadeDuration);
         });
       }
-
+      
+      // this sets up the events for button cliks
+      // we pass in the child element and then make it visible instead of hidden
       $('#prev, #next, #first, #last').on('click', function() {
         showSlide(getNextElement(this.id));
       });
@@ -191,12 +202,21 @@ $(function() {
            //return $listItems.next(':visible');
           var $next = $listItems.filter(':visible')[direction](),
             fallBack = (direction === 'prev' ? 'last' : 'first');
-            if (direction === 'first') {
-               return $listItems.first();
-				
             
+            switch(direction){
+              case 'first':
+                return $listItems.first();
+              break;
+                case 'next':
+                return !$next.length ? $listItems[fallBack]() : $next;
+              break;
+                case 'prev':
+                return !$next.length ? $listItems[fallBack]() : $next;
+              break;
+                case 'last':
+                return $listItems.last();
+              break;
             }
-          return !$next.length ? $listItems[fallBack]() : $next;
         }
       });
 
