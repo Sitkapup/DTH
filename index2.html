@@ -99,7 +99,7 @@
 	<div class="container">
         <div class="download-section">
          <ul id="site_slideshow_inner_text">
-	<ol><img src="http://dthcomic.com/img/pg028.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"><button class="btn btn-default btn-lg" style="margin-right: 82px;" onclick="reset('newid1', 'http://dthcomic.com/1', 'Down The Hatch Page 28', 'en');">Load Comments</button></ol>
+	
     <ol><img src="http://dthcomic.com/img/pg001.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"><button class="btn btn-default btn-lg" style="margin-right: 82px;" onclick="reset('newid2', 'http://dthcomic.com/2', 'Down The Hatch Page 1', 'en');">Load Comments</button></ol>
     <ol><img src="http://dthcomic.com/img/pg002.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"><button class="btn btn-default btn-lg" style="margin-right: 82px;" onclick="reset('newid3', 'http://dthcomic.com/3', 'Down The Hatch Page 2', 'en');">Load Comments</button></ol>
     <ol><img src="http://dthcomic.com/img/pg003.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"><button class="btn btn-default btn-lg" style="margin-right: 82px;" onclick="reset('newid4', 'http://dthcomic.com/4', 'Down The Hatch Page 3', 'en');">Load Comments</button></ol>
@@ -127,7 +127,7 @@
 	<ol><img src="http://dthcomic.com/img/pg025.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"><button class="btn btn-default btn-lg" style="margin-right: 82px;" onclick="reset('newid26', 'http://dthcomic.com/26', 'Down The Hatch Page 25', 'en');">Load Comments</button></ol>
 	<ol><img src="http://dthcomic.com/img/pg026.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"><button class="btn btn-default btn-lg" style="margin-right: 82px;" onclick="reset('newid27', 'http://dthcomic.com/27', 'Down The Hatch Page 26', 'en');">Load Comments</button></ol>
 	<ol><img src="http://dthcomic.com/img/pg027.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"><button class="btn btn-default btn-lg" style="margin-right: 82px;" onclick="reset('newid28', 'http://dthcomic.com/28', 'Down The Hatch Page 27', 'en');">Load Comments</button></ol>
-	
+	<ol><img src="http://dthcomic.com/img/pg028.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"><button class="btn btn-default btn-lg" style="margin-right: 82px;" onclick="reset('newid1', 'http://dthcomic.com/1', 'Down The Hatch Page 28', 'en');">Load Comments</button></ol>
 </ul>
 <button type="button" id="first" class="btn btn-default btn-lg"onmousedown="event.preventDefault()">First</button>
 <button type="button" id="prev" class="btn btn-default btn-lg" onmousedown="event.preventDefault()">Prev</button>
@@ -165,50 +165,40 @@
 </div>
 
 <script>
-$(function () {
-    var 
+$(function() {
+      var
         $listItems = $("#site_slideshow_inner_text").children('ol'),
         fadeDuration = 300,
         interval;
-		
-    $listItems.not(':first').hide();
+        // hide whatever isn't the last child
+      $listItems.not(':last').hide();
+      
+    //  $( "li" ).each(function( index ) {
+  //document.write( index + ": " + $( this ).text() );
+    //   });
 
-    function showSlide(elm) {
-        $listItems.filter(':visible').fadeOut(fadeDuration, function () {
-            elm.fadeIn(fadeDuration);
+      function showSlide(elm) {
+        $listItems.filter(':visible').fadeOut(fadeDuration, function() {
+          elm.fadeIn(fadeDuration);
         });
-    }
-	
-		$('#prev, #next').on('click', function () {
-        stopAutoSlide();
+      }
+
+      $('#prev, #next, #first, #last').on('click', function() {
         showSlide(getNextElement(this.id));
-		
-		
-    });
-		
-	  $('#first').on('click', function() {
-    stopAutoSlide();
-    showSlide(getNextElement('first'));
-  });
+      });
 
-  $('#last').on('click', function() {
-    stopAutoSlide();
-    showSlide(getNextElement('last'));
-  });
-
-    function getNextElement(direction) {
-        var $next = $listItems.filter(':visible')[direction](),
+        function getNextElement(direction) {
+           //return $listItems.next(':visible');
+          var $next = $listItems.filter(':visible')[direction](),
             fallBack = (direction === 'prev' ? 'last' : 'first');
-        return !$next.length ? $listItems[fallBack]() : $next;
-    }
+            if (direction === 'first') {
+               return $listItems.first();
+            
+            }
+          return !$next.length ? $listItems[fallBack]() : $next;
+        }
+      });
 
-    function stopAutoSlide() {
-        $listItems.stop(true, true, true);
-        clearInterval(interval);
-    }
-
-    autoSlide();
-});
 </script>
 
 
