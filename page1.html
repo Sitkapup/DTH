@@ -99,6 +99,17 @@
         <div class="download-section">
          <ul id="site_slideshow_inner_text">
 	<img src="http://dthcomic.com/img/pg001.jpg" alt="" width="927" height="1200" style="margin-right: 82px;"><onload="reset('newid2', 'http://dthcomic.com/2', 'Down The Hatch Page 1', 'en');">
+		<script>
+$('body').keydown(function (e) {
+    if (e.which == 37) {
+        // Left Arrow Pushed
+        window.location = "/index.html";
+    } else if (e.which == 39) {
+        // Right Arrow Pushed
+        window.location = "/page2.html";
+    }
+}); 
+</script>
 </ul>
 <a href="/page1.html" type="button" class="btn btn-default btn-lg" onmousedown="event.preventDefault()">First</a>
 <a href="/index.html" type="button" class="btn btn-default btn-lg" onmousedown="event.preventDefault()">Prev</a>
