@@ -41,7 +41,18 @@
     <![endif]-->
 
 </head>
+<script>
+var images = [
+'../img/fa.png',
+'../img/tumblr.png',
+'../img/patreon.png',
+'../img/mort.png'
+];
 
+$(images).each(function() {
+var image = $('<img />').attr('src', this);
+});
+</script>
 </div>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <!-- jQuery -->
