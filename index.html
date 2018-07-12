@@ -108,11 +108,10 @@ $('body').keydown(function (e) {
     } else if (e.which == 39) {
         // Right Arrow Pushed
         window.location = "https://www.patreon.com/lemondeer";
-		window.onbeforeunload = e => {
-    var dialogText = 'Do you really want to leave this site?';
-    e.returnValue = dialogText;
-    return dialogText;
-};
+		window.onbeforeunload = function () {
+    return "Are you sure you want to leave?"
+}
+		
     }
 }); 
 </script>
