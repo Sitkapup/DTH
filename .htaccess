@@ -1,5 +1,9 @@
+#Redirect all comic image acces requests via the patreon check
 RewriteEngine On
 RewriteBase /		
 RewriteCond %{REQUEST_FILENAME} (\.png|\.jpg|\.gif|\.jpeg|\.bmp)
 RewriteCond %{HTTP_REFERER} !^wp-admin [NC]
-RewriteRule ^img/pg(.*)$ img/nope.png [QSA,L]
+RewriteRule ^img/Comics/(.*)$ img/nope.png [QSA,L]
+
+#Block access to the git folder
+RedirectMatch 404 /\.git
