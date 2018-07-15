@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /		
+RewriteCond %{REQUEST_FILENAME} (\.png|\.jpg|\.gif|\.jpeg|\.bmp)
+RewriteCond %{HTTP_REFERER} !^wp-admin [NC]
+RewriteRule ^img/pg(.*)$ img/nope.png [QSA,L]
