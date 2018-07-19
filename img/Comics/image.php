@@ -1,4 +1,4 @@
 <?php
-echp $_GET["image"];
+echo $_GET["image"];
 
 ?>
