@@ -1,4 +1,4 @@
 <?php
-echo $_GET["image"];
-
+header("Content-type: image/jpg");
+readfile($_GET["image"]);
 ?>
