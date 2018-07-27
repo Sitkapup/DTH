@@ -167,7 +167,7 @@
                         //return $listItems.next(':visible');
                         var $next = $listItems.filter(':visible')[direction](),
                             fallBack = (direction === 'prev' ? 'last' : 'first');
-                        $("html, body").animate({ scrollTop: 0 }, "slow");
+
                         switch (direction) {
                             case 'first':
                                 currPage = 1;
