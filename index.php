@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -137,7 +138,7 @@
                         fadeDuration = 300,
                         interval;
                     
-                    var numOfPages = 35;
+                    var numOfPages = 33;
                     var currPage = numOfPages;
 
                     resetDivs();
@@ -167,21 +168,15 @@
                         //return $listItems.next(':visible');
                         var $next = $listItems.filter(':visible')[direction](),
                             fallBack = (direction === 'prev' ? 'last' : 'first');
-                        $("html, body").animate({ scrollTop: 0 }, "slow");
+
                         switch (direction) {
                             case 'first':
                                 currPage = 1;
-                                $("#prevpage").children("img").attr("src", "img/pg" + pad(currPage, 3) + ".jpg");
+                                $("#prevpage").children("img").attr("src", "img/Comics/pg" + pad(currPage, 3) + ".jpg");
                                 return $listItems.filter(':first');
                                 break;
                             case 'next':
-                                if (currPage == numOfPages) {
-                                    window.location = "https://www.patreon.com/lemondeer";
-                                    window.onbeforeunload = function() {
-                                        return "Are you sure you want to leave?";
-                                    }
-                                }
-                                else if (currPage < numOfPages) {
+                                if (currPage < numOfPages) {
                                     currPage++;
                                 }
                                 return !$next.length ? $listItems[fallBack]() : $next;
@@ -194,7 +189,7 @@
                                 break;
                             case 'last':
                                 currPage = numOfPages;
-                                $("#nextpage").children("img").attr("src", "img/pg" + pad(currPage, 3) + ".jpg");
+                                $("#nextpage").children("img").attr("src", "img/Comics/pg" + pad(currPage, 3) + ".jpg");
                                 return $listItems.filter(':last');
                                 break;
                         }
@@ -221,30 +216,21 @@
 
 
                     function resetDivs() {
-                        $("#currpage").children("img").attr("src", "img/pg" + pad(currPage, 3) + ".jpg");
+                        $("#currpage").children("img").attr("src", "img/Comics/pg" + pad(currPage, 3) + ".jpg");
                         $("#currpage").show();
                         $("#prevpage").hide();
                         $("#nextpage").hide();
-                        $("#prevpage").children("img").attr("src", "img/pg" + pad(currPage - 1, 3) + ".jpg");
+                        $("#prevpage").children("img").attr("src", "img/Comics/pg" + pad(currPage - 1, 3) + ".jpg");
                         if (currPage == 1) {
-                            $("#prevpage").children("img").attr("src", "img/pg" + pad(currPage, 3) + ".jpg");
+                            $("#prevpage").children("img").attr("src", "img/Comics/pg" + pad(currPage, 3) + ".jpg");
                         } else {
-                            $("#prevpage").children("img").attr("src", "img/pg" + pad(currPage - 1, 3) + ".jpg");
+                            $("#prevpage").children("img").attr("src", "img/Comics/pg" + pad(currPage - 1, 3) + ".jpg");
                         }
                         if (currPage == numOfPages) {
-                            $("#nextpage").children("img").attr("src", "img/pg" + pad(currPage, 3) + ".jpg");
+                            $("#nextpage").children("img").attr("src", "img/Comics/pg" + pad(currPage, 3) + ".jpg");
                         } else {
-                            $("#nextpage").children("img").attr("src", "img/pg" + pad(currPage + 1, 3) + ".jpg");
+                            $("#nextpage").children("img").attr("src", "img/Comics/pg" + pad(currPage + 1, 3) + ".jpg");
                         }
-                        if (currPage == numOfPages) {
-                            //Last page, set next button to Patreon
-                            $("#next").html("Next (Patreon)");
-                        } else {
-
-                            $("#next").html("Next");
-                        }
-
-
 
                     }
 
@@ -315,7 +301,7 @@
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p>Copyright &copy; LemonDeer 2018</p>
+            <p>Copyright &copy; Lemon Deer 2017</p>
         </div>
     </footer>
 
