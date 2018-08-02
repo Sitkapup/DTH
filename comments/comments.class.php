@@ -363,7 +363,7 @@ function generateReplies($comm_id, $limit = 3) {
 			$show_name_email = "<div class='control-group'>
 			  <label class='control-label' for='comm_name'>Name</label>
 			  <div class='controls'>
-				<input id='comm_name' name='comm_name' type='text' class='input-xlarge' value='$comment->name'>
+				<input id='comm_name' name='comm_name' type='text' class='input-xlarge' style='color: black;' value='$comment->name'>
 				
 			  </div>
 			</div>
@@ -371,7 +371,7 @@ function generateReplies($comm_id, $limit = 3) {
 			<div class='control-group'>
 			  <label class='control-label' for='comm_email'>Email</label>
 			  <div class='controls'>
-				<input id='comm_email' name='comm_email' type='text' class='input-xlarge' value='$comment->email'>
+				<input id='comm_email' name='comm_email' type='text' class='input-xlarge' style='color: black;' value='$comment->email'>
 			  	<p>
 			  	".($this->settings['optional_email'] ? "(optional, it will not be public.)" : "")."
 			  	</p>
@@ -390,7 +390,7 @@ function generateReplies($comm_id, $limit = 3) {
 		<div class='control-group'>
 		  <label class='control-label' for='comm_msg'>Message</label>
 		  <div class='controls'>					 
-			<textarea class='input-xlarge' id='comm_msg' name='comm_msg'>$comment->message</textarea>
+			<textarea class='input-xlarge' id='comm_msg' style='color: black;' name='comm_msg'>$comment->message</textarea>
 		  </div>
 		</div>
 

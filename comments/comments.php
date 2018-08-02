@@ -15,7 +15,7 @@ $comments->grabComment($page_id);
 
 if(isset($_POST['comm_submit']))
 {
-	header('Location: index.html');
+	header('Location: http://lem2.dragonnest.co.uk');
 }
 
 if($comments->success)
@@ -23,7 +23,7 @@ if($comments->success)
 else if($comments->error)
 	echo "<div class='alert alert-error' id='comm_status'>".$comments->error."</div>";
 // a simple form
-echo $comments->generateForm('comments/comments.php');
+echo $comments->generateForm('comments/post.php');
 // we show the posted comments
 echo $comments->generateComments($page_id); // we pass the page id
 ?>
