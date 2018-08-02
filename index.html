@@ -112,7 +112,7 @@
         <div class="container">
             <div class="download-section">
                 <div id="site_slideshow_inner_text" style="position: relative;padding-left: 0px;">
-                    
+
                     <div id="prevpage" class="imageDivs" style="display: none;">
                         <img class="center-block img-responsive" src="" alt="" />
                     </div>
@@ -136,13 +136,13 @@
                         $listItems = $("#site_slideshow_inner_text").children('div'),
                         fadeDuration = 300,
                         interval;
-                    
+
                     var numOfPages = 35;
                     var currPage = numOfPages;
 
                     resetDivs();
 
-                    $("#currpage").children("img").load(function() {
+                    $("#currpage").children("img").load(function () {
                         setDivHeight(this.clientHeight);
                     });
 
@@ -166,7 +166,7 @@
                         //return $listItems.next(':visible');
                         var $next = $listItems.filter(':visible')[direction](),
                             fallBack = (direction === 'prev' ? 'last' : 'first');
-                        
+
                         $("html, body").animate({ scrollTop: 0 }, "slow");
                         switch (direction) {
                             case 'first':
@@ -177,7 +177,7 @@
                             case 'next':
                                 if (currPage == numOfPages) {
                                     window.location = "https://www.patreon.com/lemondeer";
-                                    window.onbeforeunload = function() {
+                                    window.onbeforeunload = function () {
                                         return "Are you sure you want to leave?";
                                     }
                                 }
@@ -200,7 +200,7 @@
                         }
                     }
 
-                    function pad (str, max) {
+                    function pad(str, max) {
                         str = str.toString();
                         return str.length < max ? pad("0" + str, max) : str;
                     }
@@ -212,7 +212,7 @@
                         } else if (e.which == 39) {
                             showSlide(getNextElement("next"));
                         }
-                    }); 
+                    });
 
                     function setDivHeight(height) {
                         console.log("Set height to " + height);
@@ -250,14 +250,44 @@
 
 
                 });
-                
+
 
             </script>
 
 
-        </div>
+        </div>    
+        <div id="disqus_thread" style="max-width: 800px; position: center; margin-left: auto; margin-right: auto;"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'dthcomic-com';
+        var disqus_identifier = 'newid31';
+        var disqus_url = 'http://dthcomic.com/index.html';
+        var disqus_config = function () {
+          this.language = "en";
+        };
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+        /* * * Disqus Reset Function * * */
+        var reset = function (newIdentifier, newUrl, newTitle, newLanguage) {
+            DISQUS.reset({
+                reload: true,
+                config: function () {
+                    this.page.identifier = newIdentifier;
+                    this.page.url = newUrl;
+                    this.page.title = newTitle;
+                    this.language = newLanguage;
+                }
+            });
+        };
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
-    <!-- About Section -->
+
+        <!-- About Section -->
     <section id="about" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
