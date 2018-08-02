@@ -21,7 +21,7 @@ class Comments_System
 			'banned_table' => '_banned', // the name of the table in which the comments will be hold
 			'auto_install' => true, // if the class is not already installed it will attempt to install it
 			'public' => true, // if true unregistered users are allowed to post a comment
-			'optional_email' => false, // if true users don't need to enter a valid email
+			'optional_email' => true, // if true users don't need to enter a valid email
 			'isAdmin' => false, // if true some extra options are displyed delete
 			'adminStyle' => array( // special formating to admin messages
 				'username' => 'color: #0000ff; font-weidth: bold;', 

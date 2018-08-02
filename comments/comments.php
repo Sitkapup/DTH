@@ -1,9 +1,9 @@
 <?php
+include 'config.php';
 include 'comments.class.php';
-include 'config.php'
 $page_id = $_GET["page"];
 $settings = array(
-	'public' => 0,
+	'public' => true,
 	'user_details' => array(
 		'name' => 'Anon',
 		'email' => 'Anon@mouse'

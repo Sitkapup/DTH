@@ -144,7 +144,7 @@
 
                     $("#currpage").children("img").load(function () {
                         setDivHeight(this.clientHeight);
-                        $("#comments").load("comments/comments.php"); 
+                        $("#comments").load("comments/comments.php?page=" + currPage); 
                     });
 
                     // this function looks for child items that are visible and performs the fade function
