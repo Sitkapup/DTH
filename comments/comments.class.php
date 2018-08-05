@@ -381,7 +381,7 @@ function generateReplies($comm_id, $limit = 3) {
 
 
 		$html = "
-	<form class='form-horizontal' action='$location#comm_status' method='post'>
+	<form class='form-horizontal' action='$location#comm_status?page=$page_id' method='post'>
 		<fieldset>
 		<legend>$title</legend>
 
