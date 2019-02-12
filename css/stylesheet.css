@@ -14,3 +14,18 @@
     font-style: normal;
 
 }
+
+
+.imageBorder {
+    border-top: 25px;
+    border-bottom: 45px;
+    border-left: 70px;
+    border-right: 80px;
+    border-image: url('../img/page_background.png') 30 120 60 110 stretch;
+    border-style: solid;
+    border-color: transparent;
+}
+
+.navButtons {
+    padding-top: 60px;
+}
