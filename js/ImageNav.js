@@ -7,6 +7,8 @@ $(function () {
     var numOfPages = 72;
     var currPage = numOfPages;
 
+    var borderHeightAdd = 25 + 45;
+
     resetDivs();
 
     $("#currpage").children("img").load(function () {
@@ -83,7 +85,7 @@ $(function () {
 
     function setDivHeight(height) {
         console.log("Set height to " + height);
-        $("#site_slideshow_inner_text").css("height", height + 10);
+        $("#site_slideshow_inner_text").css("height", height + borderHeightAdd);
     }
 
 

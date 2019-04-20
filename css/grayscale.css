@@ -241,7 +241,7 @@ a:focus {
     padding-top: 0px;
   }
   .download-section {
-    padding: 100px 0;
+    padding: 100px 0 10px;
   }
   #map {
     height: 400px;

@@ -26,6 +26,26 @@
     border-color: transparent;
 }
 
-.navButtons {
-    padding-top: 60px;
+@media (min-width: 767px) {
+    .textBorder {
+        border-top: 120px;
+        border-bottom: 120px;
+        border-left: 120px;
+        border-right: 140px;
+        border-image: url('../img/TextBG.png') 120 140 120 120 fill stretch;
+        border-style: solid;
+        border-color: transparent;
+    }
 }
+@media (max-width: 767px) {
+    .textBorder {
+        padding-top: 100px;
+    }
+}
+
+
+
+
+    .navButtons {
+        padding-top: 30px;
+    }
