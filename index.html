@@ -2,24 +2,8 @@
 <html lang="en">
 
 <head>
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] ||
-                function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m);
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    <script src="js/googleAnalytics.js" ></script>
 
-        ga('create', 'UA-105221591-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Cache-control" content="public">
@@ -62,16 +46,12 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.js"></script>
-
+        
     <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.js"></script>
-
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Theme JavaScript -->
-    <script src="js/grayscale.js"></script>
+    <script src="js/grayscale.min.js"></script>
 
     <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -134,130 +114,8 @@
                 </div>
             </div>
 
-            <script>
-                $(function () {
-                    var
-                        $listItems = $("#site_slideshow_inner_text").children('div'),
-                        fadeDuration = 300,
-                        interval;
-                    
-                    var numOfPages = 72;
-                    var currPage = numOfPages;
-
-                    resetDivs();
-
-                    $("#currpage").children("img").load(function() {
-                        setDivHeight(this.clientHeight);
-                    });
-
-                    // this function looks for child items that are visible and performs the fade function
-                    // elements that weren't last were hidden
-                    // now when we go to the next element it is no longer hidden and is visible while the rest
-                    // are hidden.  the elements are still taking up display space
-                    function showSlide(elm) {
-                        $listItems.filter(':visible').fadeOut(fadeDuration);
-                        elm.fadeIn(fadeDuration, resetDivs);
-                        setDivHeight(elm[0].firstElementChild.clientHeight);
-                    };
-
-                    // this sets up the events for button cliks
-                    // we pass in the child element and then make it visible instead of hidden
-                    $('#prev, #next, #first, #last').on('click',
-                        function () {
-                            showSlide(getNextElement(this.id));
-                        });
-                    function getNextElement(direction) {
-                        //return $listItems.next(':visible');
-                        var $next = $listItems.filter(':visible')[direction](),
-                            fallBack = (direction === 'prev' ? 'last' : 'first');
-                        
-                        $("html, body").animate({ scrollTop: 0 }, "slow");
-                        switch (direction) {
-                            case 'first':
-                                currPage = 1;
-                                $("#prevpage").children("img").attr("src", "img/pg" + pad(currPage, 3) + ".jpg");
-                                return $listItems.filter(':first');
-                                break;
-                            case 'next':
-                                if (currPage == numOfPages) {
-                                    window.location = "https://www.patreon.com/lemondeer";
-                                    window.onbeforeunload = function() {
-                                        return "Are you sure you want to leave?";
-                                    }
-                                }
-                                else if (currPage < numOfPages) {
-                                    currPage++;
-                                }
-                                return !$next.length ? $listItems[fallBack]() : $next;
-                                break;
-                            case 'prev':
-                                if (currPage > 1) {
-                                    currPage--;
-                                }
-                                return !$next.length ? $listItems[fallBack]() : $next;
-                                break;
-                            case 'last':
-                                currPage = numOfPages;
-                                $("#nextpage").children("img").attr("src", "img/pg" + pad(currPage, 3) + ".jpg");
-                                return $listItems.filter(':last');
-                                break;
-                        }
-                    }
-
-                    function pad (str, max) {
-                        str = str.toString();
-                        return str.length < max ? pad("0" + str, max) : str;
-                    }
-
-                    $('body').keydown(function (e) {
-                        if (e.which == 37) {
-                            // Left Arrow Pushed
-                            showSlide(getNextElement("prev"));
-                        } else if (e.which == 39) {
-                            showSlide(getNextElement("next"));
-                        }
-                    }); 
-
-                    function setDivHeight(height) {
-                        console.log("Set height to " + height);
-                        $("#site_slideshow_inner_text").css("height", height + 10);
-                    }
-
-
-                    function resetDivs() {
-                        $("#currpage").children("img").attr("src", "img/pg" + pad(currPage, 3) + ".jpg");
-                        $("#currpage").show();
-                        $("#prevpage").hide();
-                        $("#nextpage").hide();
-                        $("#prevpage").children("img").attr("src", "img/pg" + pad(currPage - 1, 3) + ".jpg");
-                        if (currPage == 1) {
-                            $("#prevpage").children("img").attr("src", "img/pg" + pad(currPage, 3) + ".jpg");
-                        } else {
-                            $("#prevpage").children("img").attr("src", "img/pg" + pad(currPage - 1, 3) + ".jpg");
-                        }
-                        if (currPage == numOfPages) {
-                            $("#nextpage").children("img").attr("src", "img/pg" + pad(currPage, 3) + ".jpg");
-                        } else {
-                            $("#nextpage").children("img").attr("src", "img/pg" + pad(currPage + 1, 3) + ".jpg");
-                        }
-                        if (currPage == numOfPages) {
-                            //Last page, set next button to Patreon
-                            $("#next").html("Next (Patreon)");
-                        } else {
-
-                            $("#next").html("Next");
-                        }
-
-
-
-                    }
-
-
-                });
-                
-
-            </script>
-
+            <!--  The navigation Script -->
+            <script src="js/ImageNav.js"> </script>
 
         </div>
     </section>
@@ -277,7 +135,7 @@
                 </h4>
                 <h4>
                     <p>
-                        <img class="center-block img-responsive" src="../img/mort.png" alt="Mort" height="658" width="600">
+                        <img class="center-block img-responsive" src="img/mort.png" alt="Mort" height="658" width="600">
                     </p>
                 </h4>
             </div>
@@ -295,19 +153,19 @@
                 <ul class="list-inline banner-social-buttons">
                     <li>
                         <a href="https://deerlemon.tumblr.com/">
-                            <img src="../img/tumblr.png">
+                            <img src="img/tumblr.png">
                             <p>Tumblr</p>
                         </a>
                     </li>
                     <li>
                         <a href="http://www.furaffinity.net/user/lemondeer">
-                            <img src="../img/fa.png">
+                            <img src="img/fa.png">
                             <p>Furaffinity</p>
                         </a>
                     </li>
                     <li>
                         <a href="https://www.patreon.com/lemondeer">
-                            <img src="../img/patreon.png">
+                            <img src="img/patreon.png">
                             <p>Patreon</p>
                         </a>
                     </li>
@@ -322,19 +180,6 @@
             <p>Copyright &copy; LemonDeer 2018</p>
         </div>
     </footer>
-
-    <!-- jQuery -->
-    <script src="vendor/jquery/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
-
-    <!-- Theme JavaScript -->
-    <script src="js/grayscale.min.js"></script>
 
 </body>
 </html>
