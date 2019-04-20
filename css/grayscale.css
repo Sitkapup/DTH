@@ -56,7 +56,8 @@ a:focus {
   margin-bottom: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   text-transform: uppercase;
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 25px;
+  font-family: 'lemmedium';
   background-color: black;
 }
 .navbar-custom .navbar-toggle {
@@ -111,11 +112,11 @@ a:focus {
     -moz-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
     transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
   }
-  .navbar-custom.top-nav-collapse {
-    padding: 0;
-    background: black;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  }
+    .navbar-custom.top-nav-collapse {
+        padding: 0;
+        background: url("../img/topbar.png") no-repeat border-box bottom;
+
+    }
 }
 .intro {
   display: table;
